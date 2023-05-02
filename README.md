@@ -127,7 +127,7 @@ temp_url = job_data['dataSource']['params']['tempUrl']
 
 with open(my_file_path) as f:
     files = {'my_file_name': f}
-    upload_resp = requests.post(temp_url, files=files)
+    upload_resp = requests.put(temp_url, files=files)
     upload_resp.raise_for_status()
 
 confirm_upload_resp = requests.post('http://api.bytenite.com/v1/customer/jobs/uploadcompleted/{job_id}', 
